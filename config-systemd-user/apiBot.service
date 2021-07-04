@@ -1,0 +1,11 @@
+[Unit]
+Description=Simple Api service
+
+[Service]
+Restart=always
+RestartSec=3
+ExecStart=%h/services/venv/bin/uwsgi --http-socket 0.0.0.0:8080 --master --module simpleEcho:app
+WorkingDirectory=%h/services
+
+[Install]
+WantedBy=default.target
